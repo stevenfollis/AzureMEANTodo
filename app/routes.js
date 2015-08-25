@@ -1,29 +1,22 @@
-//Model Configuration for our ToDo's
+// Model for the todo
 var Todo = require('./models/todo.js');
 
 module.exports = function (app) {
     
-    //Route Definitions for the API to process Requests sent and received
-    //get all TODOs
+    // GET all todos
     app.get('/api/todos', function (req, res) {
         Todo.find(function (err, todos) {
-            //if we get an error send the error
-            if (err)
-                res.send(err);
-            
-            res.json(todos); //Return the list of our todos
+            // Return all todos
+            res.json(todos); 
         });
     });
     
-    //Create a new todo and then send back the list of all todos
+    // POST to create a new todo 
     app.post('/api/todos', function (req, res) {
         Todo.create({
             text: req.body.text,
             completed: false
         }, function (err, todo) {
-            //If create fails send error to client
-            if (err)
-                res.send(err);
             
             //Return the new document
             res.json(todo._doc);
@@ -31,29 +24,18 @@ module.exports = function (app) {
         });
     });
     
-    // Remove a todo
+    // DELETE to remove a todo
     app.delete('/api/todos/:todo_id', function (req, res) {
         Todo.remove({
             _id: req.params.todo_id
         }, function (err, todo) {
-            if (err)
-                res.send(err);
             
-            // Get and return all todos after delete is finished
-            Todo.find(function (err, todos) {
-                
-                // If we get an error send the error
-                if (err)
-                    res.send(err);
-                
-                res.json(todos); //Return the list of our todos
-
-            });
+            res.send(true);
 
         });
     });
     
-    // Update an existing document
+    // PUT to update an existing document
     app.put('/api/todos', function (req, res) {
         
         var todo = req.body;
@@ -65,7 +47,7 @@ module.exports = function (app) {
 
     });
     
-    // Catch all other routes and return the homepage
+    // Catch all other routes and return the app's homepage
     app.get('*', function (req, res) {
         res.sendfile('./public/index.html');
     });
