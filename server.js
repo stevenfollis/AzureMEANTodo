@@ -20,7 +20,7 @@ app.configure(function () {
 require('./app/routes.js')(app);
 
 // Setup Application Insights
-appInsights.setup();
+appInsights.setup().start();
 
 // Start the server and listen for requests
 app.listen(port);
