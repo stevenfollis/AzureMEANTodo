@@ -4,6 +4,7 @@ var app = express();
 var mongoose = require('mongoose');
 var port = process.env.PORT || 8080;
 var database = require('./config/database');
+var appInsights = require("applicationinsights");
 
 // Setup MongoDB (via Mongoose)
 mongoose.connect(database.url);
@@ -17,6 +18,9 @@ app.configure(function () {
 });
 
 require('./app/routes.js')(app);
+
+// Setup Application Insights
+appInsights.setup();
 
 // Start the server and listen for requests
 app.listen(port);
