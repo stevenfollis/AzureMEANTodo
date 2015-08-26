@@ -3,7 +3,7 @@
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <SchemaVersion>2.0</SchemaVersion>
-        <ProjectGuid>{2ad4ed1b-3548-4151-a950-26f032389297}</ProjectGuid>
+        <ProjectGuid>{a4c47c1d-04eb-41cf-9cf2-7848d8b7867d}</ProjectGuid>
         <ProjectHome />
         <ProjectView>ShowAllFiles</ProjectView>
         <StartupFile>server.js</StartupFile>
@@ -17,6 +17,7 @@
     <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
     <ItemGroup>
         <Content Include="package.json" />
+        <Content Include="README.md" />
         <Compile Include="server.js" />
         <Compile Include="app\routes.js" />
         <Compile Include="config\database.js" />
@@ -24,39 +25,25 @@
         <Content Include="public\favicon.ico" />
         <Compile Include="app\models\todo.js" />
         <Compile Include="public\js\app.js" />
-        <Content Include="public\_archive\index.html" />
         <Compile Include="public\js\controllers\todoCtrl.js" />
         <Compile Include="public\js\directives\todoEscape.js" />
         <Compile Include="public\js\directives\todoFocus.js" />
         <Compile Include="public\js\services\todoStorage.js" />
-        <Compile Include="public\test\config\karma.conf.js" />
-        <Compile Include="public\test\unit\directivesSpec.js" />
-        <Compile Include="public\test\unit\todoCtrlSpec.js" />
         <Compile Include="public\vendor\angular\angular.js" />
         <Compile Include="public\vendor\angular-route\angular-route.js" />
         <Content Include="public\vendor\todomvc-app-css\index.css" />
         <Content Include="public\vendor\todomvc-common\base.css" />
         <Compile Include="public\vendor\todomvc-common\base.js" />
-        <Compile Include="public\_archive\js\core.js" />
-        <Compile Include="public\_archive\js\controllers\mainController.js" />
-        <Compile Include="public\_archive\js\services\todoService.js" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="app" />
         <Folder Include="app\models" />
         <Folder Include="config" />
         <Folder Include="public" />
-        <Folder Include="public\_archive" />
-        <Folder Include="public\_archive\js" />
-        <Folder Include="public\_archive\js\controllers" />
-        <Folder Include="public\_archive\js\services" />
         <Folder Include="public\js" />
         <Folder Include="public\js\controllers" />
         <Folder Include="public\js\directives" />
         <Folder Include="public\js\services" />
-        <Folder Include="public\test" />
-        <Folder Include="public\test\config" />
-        <Folder Include="public\test\unit" />
         <Folder Include="public\vendor" />
         <Folder Include="public\vendor\angular" />
         <Folder Include="public\vendor\angular-route" />
